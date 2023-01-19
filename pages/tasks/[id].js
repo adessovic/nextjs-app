@@ -1,7 +1,7 @@
 import Layout from "../../components/layout";
 
 export const getStaticPaths = async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5');
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10');
     const data = await res.json();
 
     const paths = data.map(post => {
@@ -30,7 +30,7 @@ const Details = ({ post }) => {
     return (
         <Layout>
             <h1>Task Detail</h1>
-            <p>ID: { post.userId }</p>
+            <p>ID: { post.id }</p>
             <h5>{ post.title.toUpperCase() }</h5>
             <pre>{ post.body }</pre>            
         </Layout>
